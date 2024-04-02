@@ -51,14 +51,21 @@ namespace RPG.Combat
             transform.LookAt(target.transform);
             if(timeSinceLastAttack > TimeBetweenAttack)
             {
-                GetComponent<Animator>().SetTrigger("attack");
+                TriggerAttack();
                 timeSinceLastAttack = 0;
             }
+        }
+
+        private void TriggerAttack()
+        {
+            GetComponent<Animator>().ResetTrigger("stopAttack");
+            GetComponent<Animator>().SetTrigger("attack");
         }
 
         //Animation Hit
         void Hit()
         {
+            if(target == null) { return; }
             target.TakeDamage(weaponDamage);
         }
 
@@ -70,8 +77,14 @@ namespace RPG.Combat
 
         public void Cancel()
         {
-            animator.SetTrigger("stopAttack");
+            StopAttack();
             target = null;
+        }
+
+        private void StopAttack()
+        {
+            animator.ResetTrigger("attack");
+            animator.SetTrigger("stopAttack");
         }
 
         public bool CanAttack(CombatTarget combatTarget)

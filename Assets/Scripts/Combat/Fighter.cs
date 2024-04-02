@@ -31,9 +31,6 @@ namespace RPG.Combat
 
             if(target == null) { return; }
             if(target.IsDie())  { return; }
-            {
-
-            }
 
             bool isInRange = Vector3.Distance(transform.position, target.transform.position) < weaponRange;
             if(!isInRange)
@@ -62,7 +59,6 @@ namespace RPG.Combat
         //Animation Hit
         void Hit()
         {
-            
             target.TakeDamage(weaponDamage);
         }
 
@@ -78,6 +74,12 @@ namespace RPG.Combat
             target = null;
         }
 
+        public bool CanAttack(CombatTarget combatTarget)
+        {
+            if(combatTarget == null) { return false; }
+            Health targetToTest = combatTarget.GetComponent<Health>();
+            return targetToTest != null && !targetToTest.IsDie();
+        }
 
     }
 }

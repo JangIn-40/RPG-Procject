@@ -8,6 +8,10 @@ namespace RPG.Combat{
         Animator animator;
 
         bool isDie = false;
+        public bool IsDie()
+        {
+            return isDie;
+        }
 
         void Start()
         {

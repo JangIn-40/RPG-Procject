@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using RPG.Combat;
 using RPG.Core;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace RPG.Control
 {
@@ -16,6 +17,7 @@ namespace RPG.Control
 
         void Start()
         {
+
             fighter = GetComponent<Fighter>();
             player = GameObject.FindWithTag("Player");
             health = GetComponent<Health>();
@@ -38,6 +40,13 @@ namespace RPG.Control
         {
             float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
             return distanceToPlayer < chaseDistance;
+        }
+
+        //Called by Untiy
+        void OnDrawGizmos() 
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, chaseDistance);
         }
     }
 }

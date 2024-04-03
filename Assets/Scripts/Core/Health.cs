@@ -1,11 +1,12 @@
 using UnityEngine;
 
-namespace RPG.Combat{
+namespace RPG.Core{
     public class Health : MonoBehaviour 
     {
         [SerializeField] float health = 100f;
 
         Animator animator;
+        ActionScheduler actionScheduler;
 
         bool isDie = false;
         public bool IsDie()
@@ -16,6 +17,7 @@ namespace RPG.Combat{
         void Start()
         {
             animator = GetComponent<Animator>();
+            actionScheduler = GetComponent<ActionScheduler>();
         }
 
         public void TakeDamage(float damage)
@@ -33,6 +35,7 @@ namespace RPG.Combat{
             if(isDie) { return; }
             isDie = true;
             animator.SetTrigger("die");
+            actionScheduler.CancelCurrentAction();
         }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using RPG.Combat;
+using RPG.Core;
 using UnityEngine;
 
 namespace RPG.Control
@@ -10,16 +11,19 @@ namespace RPG.Control
         [SerializeField] float chaseDistance = 5f;
 
         Fighter fighter;
+        Health health;
         GameObject player;
 
         void Start()
         {
             fighter = GetComponent<Fighter>();
             player = GameObject.FindWithTag("Player");
+            health = GetComponent<Health>();
         }
 
         void Update()
         {
+            if(health.IsDie()) { return; }
             if(InAttackRangeOfPlayer() && fighter.CanAttack(player))
             {
                 fighter.Attack(player);

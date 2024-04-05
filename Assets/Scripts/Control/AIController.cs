@@ -16,6 +16,7 @@ namespace RPG.Control
         [SerializeField] PatrolPath patrolPath;
         [SerializeField] float waypointTolerance = 1f;
         [SerializeField] float waypintDwellTime = 2f;
+        [SerializeField] float patrolSpeedFraction = 0.2f;
 
         Fighter fighter;
         Health health;
@@ -40,14 +41,13 @@ namespace RPG.Control
 
         void Update()
         {
-            if(health.IsDie()) { return; }
-            if(InAttackRangeOfPlayer() && fighter.CanAttack(player))
+            if (health.IsDie()) { return; }
+            if (InAttackRangeOfPlayer() && fighter.CanAttack(player))
             {
-                timeSinceLastSawPlayer = 0;
                 AttackBehaviour();
             }
             //의심상태 suspicion
-            else if(timeSinceLastSawPlayer < suspicionTime)
+            else if (timeSinceLastSawPlayer < suspicionTime)
             {
                 SuspicionBehaviour();
             }
@@ -56,12 +56,18 @@ namespace RPG.Control
                 PatrolBehaviour();
             }
 
+            UpdateTimes();
+        }
+
+        private void UpdateTimes()
+        {
             timeSinceLastSawPlayer += Time.deltaTime;
             timeSinceArrivedWaypoint += Time.deltaTime;
         }
 
         private void AttackBehaviour()
         {
+            timeSinceLastSawPlayer = 0;
             fighter.Attack(player);
         }
 
@@ -85,7 +91,7 @@ namespace RPG.Control
             }
             if(timeSinceArrivedWaypoint > waypintDwellTime)
             {
-                mover.StartMoveToAction(nextPosition);
+                mover.StartMoveToAction(nextPosition, patrolSpeedFraction);
             }
         }
 

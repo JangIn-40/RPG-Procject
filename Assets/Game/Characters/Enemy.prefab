@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Speed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1810279784284231597, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
+      propertyPath: health
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 2552182638323740287, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -85,6 +89,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseDistance: 5
   suspicionTime: 4
+  patrolPath: {fileID: 0}
+  waypointTolerance: 1
+  waypintDwellTime: 2
 --- !u!114 &4224828426995533037
 MonoBehaviour:
   m_ObjectHideFlags: 0

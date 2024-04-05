@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponRange: 2
-  weaponDamage: 2
+  weaponDamage: 10
   TimeBetweenAttack: 1
 --- !u!114 &1810279784284231597
 MonoBehaviour:

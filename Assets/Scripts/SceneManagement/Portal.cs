@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,12 +8,21 @@ namespace RPG.SceneManagement
     {
         [SerializeField] int sceneToLoad = -1;
 
+		
         void OnTriggerEnter(Collider other) 
         {
             if(other.gameObject.CompareTag("Player"))
             {
-                SceneManager.LoadScene(sceneToLoad);
+                StartCoroutine(Transition());
             }    
+        }
+
+        IEnumerator Transition()
+        {
+			DontDestroyOnLoad(this.gameObject);
+			yield return SceneManager.LoadSceneAsync(sceneToLoad);
+			print("Scene Loaded");
+			Destroy(this.gameObject);
         }
     }
 }

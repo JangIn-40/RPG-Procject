@@ -47,13 +47,14 @@ namespace RPG.SceneManagement
 
 			Portal otherPortal = GetOtherPortal();
             UpdatePlayer(otherPortal);
+            savingWrapper.Save();
 
             yield return new WaitForSeconds(fadeWaitTime);
             yield return fader.FadeIn(fadeInTime);
 			Destroy(this.gameObject);
         }
 
-        private Portal GetOtherPortal()
+        Portal GetOtherPortal()
         {
             foreach(Portal portal in FindObjectsOfType<Portal>())
             {
@@ -64,11 +65,12 @@ namespace RPG.SceneManagement
             return null;
         }
 
-        private void UpdatePlayer(Portal otherPortal)
+        void UpdatePlayer(Portal otherPortal)
         {
             GameObject player = GameObject.FindWithTag("Player");
             player.GetComponent<NavMeshAgent>().Warp(otherPortal.spawnPoint.position);
             player.transform.rotation = otherPortal.spawnPoint.rotation;
+
         }
     }
 }

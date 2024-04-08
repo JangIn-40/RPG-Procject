@@ -15,7 +15,7 @@ namespace RPG.Core{
             return isDie;
         }
 
-        void Start()
+        void Awake()
         {
             animator = GetComponent<Animator>();
             actionScheduler = GetComponent<ActionScheduler>();

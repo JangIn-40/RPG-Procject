@@ -8,7 +8,8 @@ namespace RPG.Combat
     public class Fighter : MonoBehaviour, IAction
     {
         [SerializeField] float TimeBetweenAttack = 1f;
-        [SerializeField] Transform handTransform = null;
+        [SerializeField] Transform rightHandTransform = null;
+        [SerializeField] Transform leftHandTransform = null;
         [SerializeField] Weapon defaultweapon = null;
 
         Mover mover;
@@ -47,7 +48,7 @@ namespace RPG.Combat
         public void EquipWeapon(Weapon weapon)
         {
             currentWeapon = weapon;
-            weapon.Spwan(handTransform, animator);
+            weapon.Spwan(rightHandTransform, leftHandTransform, animator);
         }
 
         private void AttackBehaviour()

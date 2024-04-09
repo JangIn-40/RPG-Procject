@@ -9,11 +9,12 @@ namespace RPG.Combat
     {
         [SerializeField] float TimeBetweenAttack = 1f;
         [SerializeField] Transform handTransform = null;
-        [SerializeField] Weapon weapon = null;
+        [SerializeField] Weapon defaultweapon = null;
 
         Mover mover;
         Health target;
         Animator animator;
+        Weapon currentWeapon = null;
 
         float timeSinceLastAttack = 0;
 
@@ -21,7 +22,7 @@ namespace RPG.Combat
         {
             mover = GetComponent<Mover>();
             animator = GetComponent<Animator>();
-            SpawnWeapon();
+            EquipWeapon(defaultweapon);
         }
 
         void Update()
@@ -31,7 +32,7 @@ namespace RPG.Combat
             if(target == null) { return; }
             if(target.IsDie())  { return; }
 
-            bool isInRange = Vector3.Distance(transform.position, target.transform.position) < weapon.GetRange();
+            bool isInRange = Vector3.Distance(transform.position, target.transform.position) < currentWeapon.GetRange();
             if(!isInRange)
             {
                 mover.MoveTo(target.transform.position, 1f);
@@ -43,9 +44,9 @@ namespace RPG.Combat
             }
         }
 
-        void SpawnWeapon()
+        public void EquipWeapon(Weapon weapon)
         {
-            if(weapon == null) return;
+            currentWeapon = weapon;
             weapon.Spwan(handTransform, animator);
         }
 
@@ -69,7 +70,7 @@ namespace RPG.Combat
         void Hit()
         {
             if(target == null) { return; }
-            target.TakeDamage(weapon.GetDamage());
+            target.TakeDamage(currentWeapon.GetDamage());
         }
 
         public void Attack(GameObject combatTarget)

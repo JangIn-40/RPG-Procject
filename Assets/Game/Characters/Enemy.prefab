@@ -12,6 +12,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: e6fb14b39b5a5034788c1df234ace5ba, type: 2}
     - target: {fileID: 1215564163, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
+      propertyPath: defaultweapon
+      value: 
+      objectReference: {fileID: 11400000, guid: e6fb14b39b5a5034788c1df234ace5ba, type: 2}
+    - target: {fileID: 1215564163, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
       propertyPath: handTransform
       value: 
       objectReference: {fileID: 7560033775585950745}
@@ -65,6 +69,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2552182638323740287, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555810396162003264, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
+      propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6992244243207600833, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}

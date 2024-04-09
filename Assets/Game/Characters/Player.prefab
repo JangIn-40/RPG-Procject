@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: handTransform
       value: 
       objectReference: {fileID: 7104164400212374805}
+    - target: {fileID: 1215564163, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
+      propertyPath: weaponOverride
+      value: 
+      objectReference: {fileID: 22100000, guid: b8b6dc2b627971b4397f00a39be49406, type: 2}
     - target: {fileID: 1783057915728245421, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
       propertyPath: uniqueIdentifier
       value: player

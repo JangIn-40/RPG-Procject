@@ -7,13 +7,24 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 1f;
+    [SerializeField] bool isHoming = true;
 
     Health target;
     float damage = 0;
 
-    void Update()
+    void Start()
     {
         transform.LookAt(GetAimLocation());
+    }
+
+    void Update()
+    {
+        if(target == null) return;
+
+        if(isHoming && !target.IsDie())
+        {
+            transform.LookAt(GetAimLocation());
+        }
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
 
@@ -33,10 +44,10 @@ public class Projectile : MonoBehaviour
         return target.transform.position + Vector3.up * targetCapsule.height / 2;
     }
 
-     void OnTriggerEnter(Collider other) {
+    void OnTriggerEnter(Collider other) {
         if(other.GetComponent<Health>() != target) return;
+        if(target.IsDie()) return;
         target.TakeDamage(damage);
         Destroy(gameObject);
-
     }
 }

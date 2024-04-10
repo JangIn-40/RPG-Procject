@@ -12,6 +12,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 749989fce273d9a4184202f091b34180, type: 2}
     - target: {fileID: 1215564163, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
+      propertyPath: leftHand
+      value: 
+      objectReference: {fileID: 7104164400212432151}
+    - target: {fileID: 1215564163, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
+      propertyPath: rightHand
+      value: 
+      objectReference: {fileID: 7104164400212374805}
+    - target: {fileID: 1215564163, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
       propertyPath: weaponDamage
       value: 10
       objectReference: {fileID: 0}

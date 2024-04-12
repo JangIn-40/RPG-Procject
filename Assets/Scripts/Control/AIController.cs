@@ -1,8 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using RPG.Combat;
 using RPG.Core;
 using RPG.Movement;
+using RPG.Attributes;
 using UnityEngine;
 using RPG.Control;
 using System;

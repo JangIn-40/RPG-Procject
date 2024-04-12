@@ -1,7 +1,9 @@
+using RPG.Stats;
 using RPG.Saving;
 using UnityEngine;
+using RPG.Core;
 
-namespace RPG.Core{
+namespace RPG.Attributes{
     public class Health : MonoBehaviour, ISaveable
     {
         [SerializeField] float health = 100f;
@@ -19,6 +21,7 @@ namespace RPG.Core{
         {
             animator = GetComponent<Animator>();
             actionScheduler = GetComponent<ActionScheduler>();
+            health = GetComponent<BaseStats>().GetHealth();
         }
 
         public void TakeDamage(float damage)

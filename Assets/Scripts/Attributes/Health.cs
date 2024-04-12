@@ -17,7 +17,7 @@ namespace RPG.Attributes{
             return isDie;
         }
 
-        void Awake()
+        void Start()
         {
             animator = GetComponent<Animator>();
             actionScheduler = GetComponent<ActionScheduler>();
@@ -32,6 +32,11 @@ namespace RPG.Attributes{
                 Die();
             }
 
+        }
+
+        public float GetPercentage()
+        {
+            return health / GetComponent<BaseStats>().GetHealth() * 100;
         }
 
         private void Die()

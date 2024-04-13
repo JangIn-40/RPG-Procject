@@ -21,7 +21,7 @@ namespace RPG.Combat
 
         float timeSinceLastAttack = 0;
 
-        void Start()
+        void Awake()
         {
             mover = GetComponent<Mover>();
             animator = GetComponent<Animator>();

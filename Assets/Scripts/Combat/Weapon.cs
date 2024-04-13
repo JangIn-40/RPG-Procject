@@ -18,6 +18,22 @@ namespace RPG.Combat
 
         public void Spwan(Transform rightHand, Transform leftHand, Animator animator)
         {
+            // if(!rightHand)
+            // {
+            //     Debug.Log($"{name} has no right hand trasnform");
+            //     return;
+            // }
+            // if(!leftHand)
+            // {
+            //     Debug.Log($"{name} has no left hand trasnform");
+            //     return;
+            // }
+            // if(!animator)
+            // {
+            //     Debug.Log($"{name} has no animator hand trasnform");
+            //     return;
+            // }
+
             DestroyOldWeapon(rightHand, leftHand);
 
             if(equippedPrefab != null)
@@ -37,10 +53,12 @@ namespace RPG.Combat
                 animator.runtimeAnimatorController = overrideController.runtimeAnimatorController;
             }
 
+
         }
 
         private void DestroyOldWeapon(Transform rightHand, Transform leftHand)
         {
+            
             Transform oldWeapon = rightHand.Find(weaponName);
             if (oldWeapon == null)
             {

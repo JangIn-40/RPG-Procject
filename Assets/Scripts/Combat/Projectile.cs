@@ -16,7 +16,8 @@ namespace RPG.Combat
         [SerializeField] float lifeAfterImpact = 2f;
         
 
-        Health target;
+        Health target = null;
+        GameObject instigator = null;
         float damage = 0;
 
 
@@ -36,10 +37,11 @@ namespace RPG.Combat
             transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
         }
 
-        public void SetTarget(Health target, float damage)
+        public void SetTarget(Health target, GameObject instigator, float damage)
         {
             this.target = target;
             this.damage = damage;
+            this.instigator = instigator;
 
             Destroy(gameObject, lifeSpan);
         }
@@ -57,7 +59,7 @@ namespace RPG.Combat
         void OnTriggerEnter(Collider other) {
             if(other.GetComponent<Health>() != target) return;
             if(target.IsDie()) return;
-            target.TakeDamage(damage);
+            target.TakeDamage(instigator, damage);
 
             moveSpeed = 0f;
 

@@ -7,6 +7,8 @@ using System;
 namespace RPG.Attributes{
     public class Health : MonoBehaviour, ISaveable
     {
+        [SerializeField] float regenerationPercentage = 70;
+
         float health = -1f;
 
         Animator animator;
@@ -27,11 +29,13 @@ namespace RPG.Attributes{
 
         void Start()
         {
+            GetComponent<BaseStats>().onLevelUp += RegenerateHealth;
             if(health < 0)
             {
                 health = GetComponent<BaseStats>().GetStat(Stat.Health);
             }
         }
+
 
         public void TakeDamage(GameObject instigator,float damage)
         {
@@ -62,6 +66,12 @@ namespace RPG.Attributes{
             if(experience == null ) return;
 
             experience.GainExperience(GetComponent<BaseStats>().GetStat(Stat.ExperienceReward));
+        }
+
+        private void RegenerateHealth()
+        {
+            float regenHealthPoints = GetComponent<BaseStats>().GetStat(Stat.Health) * (regenerationPercentage / 100);
+            health = Mathf.Max(health, regenHealthPoints);
         }
 
         public object CaptureState()

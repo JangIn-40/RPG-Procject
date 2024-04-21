@@ -37,14 +37,26 @@ namespace RPG.Attributes{
         }
 
 
-        public void TakeDamage(GameObject instigator,float damage)
+        public void TakeDamage(GameObject instigator, float damage)
         {
+            print(gameObject.name + " took damage : " + damage);
+
             health = Mathf.Max(health - damage, 0);
             if(health == 0)
             {
                 Die();
                 AwardExperience(instigator);
             }
+        }
+
+        public float GetHealthPoints()
+        {
+            return health;
+        }
+
+        public float GetMaxHealthPoints()
+        {
+            return GetComponent<BaseStats>().GetStat(Stat.Health);
         }
 
         public float GetPercentage()

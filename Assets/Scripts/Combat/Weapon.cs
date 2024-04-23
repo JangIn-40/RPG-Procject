@@ -9,8 +9,9 @@ namespace RPG.Combat
     {
         [SerializeField] AnimatorOverrideController animatorOverride = null;
         [SerializeField] GameObject equippedPrefab = null;
-        [SerializeField] float weaponRange = 2f;
         [SerializeField] float weaponDamage = 2f;
+        [SerializeField] float percentageBonus = 0f;
+        [SerializeField] float weaponRange = 2f;
         [SerializeField] bool isRightHanded = true;
         [SerializeField] Projectile projectile = null;
 
@@ -18,21 +19,6 @@ namespace RPG.Combat
 
         public void Spwan(Transform rightHand, Transform leftHand, Animator animator)
         {
-            // if(!rightHand)
-            // {
-            //     Debug.Log($"{name} has no right hand trasnform");
-            //     return;
-            // }
-            // if(!leftHand)
-            // {
-            //     Debug.Log($"{name} has no left hand trasnform");
-            //     return;
-            // }
-            // if(!animator)
-            // {
-            //     Debug.Log($"{name} has no animator hand trasnform");
-            //     return;
-            // }
 
             DestroyOldWeapon(rightHand, leftHand);
 
@@ -92,6 +78,11 @@ namespace RPG.Combat
         public float GetDamage()
         {
             return weaponDamage;
+        }
+
+        public float GetPercentageBonus()
+        {
+            return percentageBonus;
         }
 
         public float GetRange()

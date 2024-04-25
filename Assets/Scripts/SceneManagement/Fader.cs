@@ -10,7 +10,6 @@ namespace RPG.SceneManagement
         void Awake()
         {
             canvasGroup = GetComponent<CanvasGroup>();
-
         }
 
         public void FadeOutImmediate()

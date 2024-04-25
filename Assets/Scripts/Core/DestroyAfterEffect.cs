@@ -9,7 +9,7 @@ namespace RPG.Core
         [SerializeField] GameObject targetToDestroy = null;
         ParticleSystem hitEffect;
 
-        void Start() 
+        void Awake() 
         {
             hitEffect = GetComponent<ParticleSystem>();
         }

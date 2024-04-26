@@ -5,11 +5,31 @@ using RPG.Movement;
 using System;
 using RPG.Combat;
 using RPG.Attributes;
+using System.Data;
+using UnityEngine.EventSystems;
 
 namespace RPG.Control
 {
     public class PlayerController : MonoBehaviour
     {
+        enum CursorType
+        {
+            None,
+            Movement,
+            Combat,
+            UI
+        }
+
+        [System.Serializable]
+        struct CursorMapping
+        {
+            public CursorType type;
+            public Texture2D texture;
+            public Vector2 hospot;
+        }
+
+        [SerializeField] CursorMapping[] cursorMappings = null;
+
         Health health;
         void Awake()
         {
@@ -18,10 +38,46 @@ namespace RPG.Control
         
         void Update()
         {
-            if(health.IsDie()) { return; }
+            if(InteractWithUI()) { return; }
+            if(health.IsDie()) 
+            {
+                SetCursor(CursorType.None);
+                return;
+            }
+            
             if(InteractWithCombat()) { return; }
             if(InteractWithMovement()) { return; }
-            Debug.Log("Nothing to do");
+
+            SetCursor(CursorType.None);
+        }
+
+        private bool InteractWithUI()
+        {
+
+            if(EventSystem.current.IsPointerOverGameObject())
+            {
+                SetCursor(CursorType.UI);
+                return true;
+            }
+            return false;
+        }
+
+        private void SetCursor(CursorType type)
+        {
+            CursorMapping mapping = GetCursorMapping(type);
+            Cursor.SetCursor(mapping.texture, mapping.hospot, CursorMode.Auto);
+        }
+
+        CursorMapping GetCursorMapping(CursorType type)
+        {
+            foreach (CursorMapping mapping in cursorMappings)
+            {
+                if(mapping.type == type)
+                {
+                    return mapping;
+                }
+            }
+            return cursorMappings[0];
         }
 
         private bool InteractWithCombat()
@@ -37,10 +93,13 @@ namespace RPG.Control
                 {
                     GetComponent<Fighter>().Attack(target.gameObject);
                 }
+                SetCursor(CursorType.Combat);
                 return true;
             }
             return false;
         }
+
+        
 
         private bool InteractWithMovement()
         {
@@ -52,6 +111,7 @@ namespace RPG.Control
                 {
                     GetComponent<Mover>().StartMoveToAction(hit.point, 1f);
                 }
+                SetCursor(CursorType.Movement);
                 return true;
             }
             return false;

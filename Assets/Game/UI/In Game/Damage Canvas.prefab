@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 2501363664658796631}
   - component: {fileID: 2273666334889489018}
   - component: {fileID: 1657365584907841377}
+  - component: {fileID: 5689873162743477626}
+  - component: {fileID: 6142914320643220455}
+  - component: {fileID: 2847210517876931416}
   m_Layer: 5
   m_Name: Damage Canvas
   m_TagString: Untagged
@@ -113,6 +116,46 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eebbc44c5854e454ba4d4b0bfcd14bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!111 &5689873162743477626
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4705486234329088585}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 3a2d4f5eb1470c24e88526294f9fd0ad, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 3a2d4f5eb1470c24e88526294f9fd0ad, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!225 &6142914320643220455
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4705486234329088585}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &2847210517876931416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4705486234329088585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54bf0fd57ff140247a7633d78b72deeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7703058906088764903

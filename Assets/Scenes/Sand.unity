@@ -1963,6 +1963,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.33
       objectReference: {fileID: 0}
+    - target: {fileID: 2435496607529177948, guid: c02c9607a19423845a28a71aa9a2fb8d, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4094889842244259186, guid: c02c9607a19423845a28a71aa9a2fb8d, type: 3}
       propertyPath: defaultWeapon
       value: 

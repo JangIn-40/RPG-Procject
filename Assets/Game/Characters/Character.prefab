@@ -269,6 +269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Damage Text Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 6091852606808296110, guid: 93c049cd5895ea04aa1a91e1b18693b8, type: 3}
+      propertyPath: damageTextPrefab
+      value: 
+      objectReference: {fileID: 3275792661032609841, guid: 985f9b6ccd3cc464d9a76bca18ab0569, type: 3}
     - target: {fileID: 8825219714486530377, guid: 93c049cd5895ea04aa1a91e1b18693b8, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -279,7 +283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8825219714486530377, guid: 93c049cd5895ea04aa1a91e1b18693b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 8825219714486530377, guid: 93c049cd5895ea04aa1a91e1b18693b8, type: 3}
       propertyPath: m_LocalPosition.z

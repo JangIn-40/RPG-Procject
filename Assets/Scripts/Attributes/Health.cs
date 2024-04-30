@@ -4,6 +4,7 @@ using UnityEngine;
 using RPG.Core;
 using GameDevTV.Utils;
 using UnityEngine.Events;
+using System;
 
 namespace RPG.Attributes{
     public class Health : MonoBehaviour, ISaveable
@@ -52,8 +53,6 @@ namespace RPG.Attributes{
 
         public void TakeDamage(GameObject instigator, float damage)
         {
-            print(gameObject.name + " took damage : " + damage);
-
             health.value = Mathf.Max(health.value - damage, 0);
             
             if(health.value == 0)
@@ -65,6 +64,11 @@ namespace RPG.Attributes{
                 takeDamage.Invoke(damage);
             }
             
+        }
+
+        public void Heal(float healthToRestore)
+        {
+            health.value = Mathf.Min(GetMaxHealthPoints(), health.value + healthToRestore);
         }
 
         public float GetHealthPoints()
@@ -118,5 +122,7 @@ namespace RPG.Attributes{
                 Die();
             }
         }
+
+        
     }
 }

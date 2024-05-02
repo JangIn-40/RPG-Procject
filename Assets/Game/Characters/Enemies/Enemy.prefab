@@ -33,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 7560033775585950745}
     - target: {fileID: 951769129048898286, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1348975437094669926, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
       propertyPath: m_Speed
@@ -46,6 +46,34 @@ PrefabInstance:
     - target: {fileID: 1810279784284231597, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
       propertyPath: health
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810279784284231597, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810279784284231597, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810279784284231597, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 3546578958798965961}
+    - target: {fileID: 1810279784284231597, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810279784284231597, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Aggrevate
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810279784284231597, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: RPG.Control.AIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810279784284231597, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2552182638323740287, guid: a7a0e119cdc889144914d1d82d74d469, type: 3}
       propertyPath: m_RootOrder

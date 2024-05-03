@@ -47,12 +47,12 @@ namespace RPG.Combat
         void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
-            
-            if(target == null) { return; }
-            if(target.IsDie())  { return; }
 
-            bool isInRange = Vector3.Distance(transform.position, target.transform.position) < currentWeaponConfig.GetRange();
-            if(!isInRange)
+            if (target == null) { return; }
+            if (target.IsDie()) { return; }
+
+            
+            if (!GetIsInRange(target.transform))
             {
                 mover.MoveTo(target.transform.position, 1f);
             }
@@ -61,6 +61,11 @@ namespace RPG.Combat
                 mover.Cancel();
                 AttackBehaviour();
             }
+        }
+
+        private bool GetIsInRange(Transform targetTransform)
+        {
+            return Vector3.Distance(transform.position, targetTransform.position) < currentWeaponConfig.GetRange();
         }
 
         public void EquipWeapon(WeaponConfig weapon)
@@ -161,7 +166,11 @@ namespace RPG.Combat
         public bool CanAttack(GameObject combatTarget)
         {
             if(combatTarget == null) { return false; }
-            if(!GetComponent<Mover>().CanMoveTo(combatTarget.transform.position)) return false;
+            if(!GetComponent<Mover>().CanMoveTo(combatTarget.transform.position) &&
+                !GetIsInRange(combatTarget.transform)) 
+            {
+                return false;
+            }
             Health targetToTest = combatTarget.GetComponent<Health>();
             return targetToTest != null && !targetToTest.IsDie();
         }
